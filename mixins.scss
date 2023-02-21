@@ -1,0 +1,688 @@
+@use "variables.scss" as v;
+
+//
+//BREAKPOINTS
+//
+@mixin xs {
+  @media (max-width: 320px) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (min-width: 1152px) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width: 1440px) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (min-width: 1920px) {
+    @content;
+  }
+}
+
+//
+//
+//
+@mixin category {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  color: v.$orange;
+  text-transform: uppercase;
+  text-align: center;
+  width: 100%;
+  display: block;
+  margin-bottom: 24px;
+}
+
+@mixin title {
+  font-family: v.$source;
+  font-style: normal;
+  width: 100%;
+  text-align: center;
+  color: v.$black;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 52px;
+
+  @include sm {
+    font-size: 54px;
+    line-height: 62px;
+  }
+
+  @include md {
+    font-size: 64px;
+    line-height: 72px;
+  }
+
+  @include xl {
+    font-size: 84px;
+    line-height: 100px;
+  }
+}
+
+@mixin subtitle {
+  font-family: v.$source;
+  color: v.$basicblack;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 36px;
+  margin-bottom: 24px;
+
+  @include sm {
+    font-size: 40px;
+    line-height: 52px;
+    margin-bottom: 28px;
+  }
+
+  @include xl {
+    font-size: 64px;
+    line-height: 72px;
+  }
+}
+
+@mixin text {
+  display: block;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 23px;
+  color: v.$basicblack;
+}
+
+@mixin list-item {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 23px;
+  color: v.$basicblack;
+  list-style-type: circle;
+}
+
+@mixin label {
+  display: block;
+  width: fit-content;
+  padding: 16px 32px;
+  background: v.$azure;
+  border-radius: 42px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  color: v.$lightblue;
+  margin-bottom: 24px;
+
+  @include sm {
+    margin-bottom: 28px;
+  }
+}
+
+@mixin btn {
+  padding: 16px 32px;
+  background: v.$lightblue;
+  border-radius: 38px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 23px;
+  color: v.$white;
+  border: none;
+}
+
+@mixin navbtn--white {
+  padding: 10px 20px;
+  background: v.$white;
+  border: 1px solid v.$blue;
+  border-radius: 31px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: v.$black;
+}
+
+@mixin navbtn--blue {
+  padding: 10px 20px;
+  background: v.$blue;
+  border-radius: 31px;
+  border-style: none;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: v.$white;
+  border-bottom: 1px solid v.$blue;
+}
+
+@mixin mainbtn {
+  background: v.$blue;
+  border-radius: 62px;
+  border-style: none;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 23px;
+  color: v.$basicwhite;
+  display: block;
+  padding: 24px 30px;
+
+  @include sm {
+    padding: 24px 124px;
+  }
+}
+
+@mixin navtext {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 23px;
+  color: v.$black;
+}
+
+@mixin navtext--blue {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 23px;
+  color: v.$blue;
+}
+
+@mixin maintitle {
+  font-family: v.$source;
+  font-style: normal;
+  text-align: center;
+  color: v.$black;
+  font-size: 40px;
+  line-height: 52px;
+  font-weight: 700;
+  max-width: 288px;
+  margin: 0 auto;
+
+  @include sm {
+    max-width: 728px;
+    font-size: 74px;
+    line-height: 94px;
+  }
+
+  @include md {
+    max-width: 505px;
+    text-align: left;
+  }
+
+  @include lg {
+    max-width: 794px;
+    font-size: 90px;
+  }
+
+  @include xl {
+    line-height: 100px;
+  }
+}
+
+@mixin box-images {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 100%;
+}
+
+@mixin frame {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 60px 20px;
+  background-color: v.$grey;
+  border-radius: 16px;
+  max-width: 288px;
+  margin-bottom: 32px;
+
+  @include sm {
+    max-width: 728px;
+  }
+
+  @include md {
+    max-width: 341px;
+  }
+}
+
+@mixin frame-header {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 36px;
+  color: v.$black;
+}
+
+@mixin frame-text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: v.$black;
+  border-bottom: 1px solid;
+  padding-bottom: 20px;
+}
+
+@mixin frame-textbold {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: v.$black;
+}
+
+@mixin additionaltext {
+  width: 100%;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  color: v.$darkgrey;
+}
+
+@mixin biglabel {
+  padding: 40px;
+  background: v.$azure;
+  border-radius: 16px;
+}
+
+@mixin biglabel-yellow {
+  padding: 40px;
+  background: v.$yellow;
+  border-radius: 16px;
+}
+
+@mixin smalltitle {
+  font-family: v.$source;
+  font-style: normal;
+  color: v.$black;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 36px;
+  text-align: center;
+
+  @include sm {
+    font-size: 40px;
+    line-height: 52px;
+  }
+
+  @include md {
+    text-align: left;
+  }
+
+  @include xl {
+    font-size: 54px;
+    line-height: 62px;
+  }
+}
+
+@mixin biglabel-title {
+  font-family: v.$source;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+  color: v.$blue;
+}
+
+@mixin biglabel-title-yellow {
+  font-family: v.$source;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+  color: v.$darkyellow;
+}
+
+@mixin biglabel-text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 23px;
+  color: v.$liquid;
+}
+
+@mixin tab {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 20px;
+  background: v.$paleblue;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 288px;
+  margin-bottom: 32px;
+
+  @include sm {
+    max-width: 500px;
+  }
+
+  @include md {
+    max-width: 340px;
+    height: 704px;
+  }
+
+  @include lg {
+    max-width: 438px;
+  }
+
+  @include xl {
+    max-width: 405px;
+  }
+}
+
+@mixin tab-title {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  color: v.$black;
+  text-align: left;
+  width: 100%;
+}
+
+@mixin tab-text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 23px;
+  color: v.$black;
+  width: 100%;
+}
+
+@mixin tab-price {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 80px;
+  line-height: 70px;
+  color: v.$black;
+}
+
+@mixin tab-label {
+  padding: 16px;
+  background: v.$blue;
+  color: v.$white;
+  border-radius: 6px;
+  max-width: 248px;
+  width: 100%;
+  text-align: center;
+
+  @include sm {
+    max-width: 460px;
+  }
+
+  @include md {
+    max-width: 301px;
+  }
+
+  @include lg {
+    max-width: 398px;
+  }
+
+  @include xl {
+    max-width: 365px;
+  }
+}
+
+@mixin tab-list {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 23px;
+  color: v.$black;
+  width: 100%;
+}
+
+@mixin tab-list-item {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: v.$darkgrey;
+}
+
+@mixin tab-label--long {
+  padding: 16px 0;
+  background: v.$blue;
+  color: v.$white;
+  border-radius: 0px 0px 16px 16px;
+  text-align: center;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
+
+@mixin opinion {
+  padding: 60px 40px;
+  background: v.$white;
+  box-shadow: v.$shadow2;
+  border-radius: 12px;
+  flex: 1;
+  max-width: 552px;
+}
+
+@mixin opinion-title {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 23px;
+  color: v.$darkgrey;
+  margin-bottom: 20px;
+
+  @include lg {
+    margin-bottom: 0;
+  }
+}
+
+@mixin stars {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@mixin stars-img {
+  width: 17.77px;
+  height: 16.93px;
+}
+
+@mixin opinion-text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 23px;
+  color: v.$darkgrey;
+}
+
+@mixin avatar-img {
+  width: 70px;
+  height: 70px;
+  border-radius: 100px;
+}
+
+@mixin avatar-name {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 25px;
+  color: v.$blue;
+  width: 100%;
+}
+
+@mixin footer {
+  background: v.$black;
+  padding: 100px 16px 32px 16px;
+  max-width: 1920px;
+  width: 100%;
+
+  @include sm {
+    padding: 200px 20px 32px 20px;
+  }
+
+  @include md {
+    padding: 200px 32px 32px 32px;
+  }
+
+  @include xl {
+    padding: 200px 100px 32px 100px;
+  }
+}
+
+@mixin newsletter {
+  padding: 60px 40px;
+  background: v.$lightblue;
+  border-radius: 12px;
+
+  @include sm {
+    padding: 100px 40px;
+  }
+
+  @include md {
+    padding: 100px 40px;
+  }
+}
+
+@mixin newsletter-title {
+  font-family: v.$source;
+  font-style: normal;
+  text-align: center;
+  color: v.$white;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 52px;
+
+  @include sm {
+    font-size: 80px;
+    line-height: 100px;
+  }
+}
+
+@mixin newsletter-text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 23px;
+  text-align: center;
+  color: v.$white;
+}
+
+@mixin newsletter-input {
+  padding: 16px 22px;
+  background: v.$white;
+  border-radius: 39px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: v.$lightgrey;
+  border-style: none;
+  width: 100%;
+
+  @include sm {
+    width: 552px;
+    padding: 16px 32px;
+  }
+}
+
+@mixin newsletter-btn {
+  position: absolute;
+  padding: 16px 32px;
+  background: v.$lightpomegranate;
+  border-radius: 38px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: v.$white;
+  border-style: none;
+  right: 0;
+}
+
+@mixin info-text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: v.$white;
+}
+
+@mixin info-btn {
+  padding: 16px 40px;
+  background: v.$blue;
+  border-radius: 34px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 23px;
+  color: v.$white;
+}
+
+@mixin navfooter-text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: v.$white;
+}
+
+@mixin navfooter-text--bold {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: v.$white;
+}
+
+@mixin copyright {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: v.$white;
+}
+
+@mixin switch {
+  display: flex;
+  align-items: center;
+  padding: 9px 8px;
+  gap: 16px;
+}
+
+@mixin switch-text {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.02em;
+  color: v.$black;
+}
+
+@mixin switch-btn {
+  position: relativ;
+  width: 47px;
+  height: 26px;
+  background: v.$dusky;
+  border-radius: 16px;
+}
+
+@mixin switch-whitebtn {
+  position: absolute;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  margin-left: 4px;
+  width: 20px;
+  height: 20px;
+  background: v.$pure;
+  border-radius: 16px;
+}
